@@ -1,16 +1,19 @@
 doctype html
-html
+html(lang="en")
 	-var pageTitl = "政见 CNPolitics · 发掘海内外研究中国政治的智慧成果，引进思想资源"
 	-var pageDisc = "政见 CNPolitics.org｜发掘海内外研究中国政治的智慧成果，引进思想资源｜靠谱地谈论中国"
 	-var pageKeyw = "政见, 政治, 政治学, 中国, CNPolitics, Chinese, politics, research, researcher, scholar, scholarship"
 	include _head.jade
 	
-	body.home
+	body.home.gb-punct
 		.ceiling-line
-		header.hero(style="background-image: url(assets/hero.jpg)")
+		header.hero
+			.hero-bg(style="background-image: url(assets/hero.jpg)")
 			img.logo(src="assets/logo.svg")
+		
+		include _database-index.jade
 			
-		main.home-wrap
+		main.home-main
 			section.digest-list
 				mixin digest
 					-var digTitle = "维持现状：台湾政治精英的抉择"
@@ -19,7 +22,7 @@ html
 					-var digExcerpt = "台湾内部的两岸政策取态已经从过去激烈的蓝绿对立逐步朝“维持现状”的中间路线靠拢。而这种蓝绿逐渐趋同的局势对台湾的两岸政策、两岸互动以及台海局势的多方博弈都有显著的影响。"
 					article.digest
 						.thumb
-						h3
+						h2.title
 							a(href="#")= digTitle
 						p.meta
 							a(href="#" class="author")= digAuthor
@@ -34,5 +37,51 @@ html
 				+ digest
 			
 			section.sidebar
+				section.select
+					mixin select-post
+						-var selectTitle = "告别列宁需要多久？"
+						-var selectExcerpt = "每一代东德人的观念，都在逐渐向西德人靠拢，其间的差别将在二十至四十年后全部消失。前进，达瓦里希？或许我们还是应该道一声：再见，列宁。"
+						article.select-post
+							a(href="#")
+								h3.title= selectTitle
+								p.excerpt=  selectExcerpt
+					+select-post
+					+select-post
+					+select-post
 				
-							
+				mixin thumb
+					li.thumb
+						a(href="#")
+							-var onePx = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9JREFUeNpi+PTpE0CAAQAFsALXeCy2FAAAAABJRU5ErkJggg=="
+							img(src=onePx)
+									
+				section.select.datavis
+					h3.title
+						a(href="#") 读图识政治
+							span.more-link 更多 »
+					p.disc 政见的信息可视化基于对公开资料的搜集和分析，辨识蕴藏在单纯数据背后的事实；力求将资讯以全新的视觉形式表达，展示我们对具体事件的观点。
+					ul.thumb-list
+						+thumb
+						+thumb
+						+thumb
+				
+				section.select.publish
+					h3.title
+						a(href="#") 政见合辑
+							span.more-link 更多 »
+					p.disc 政见合辑是由网站内容重新编辑并整合而成的电子出版物。每个季度合辑都会与你见面。
+					ul.thumb-list
+						+thumb
+						+thumb
+						+thumb
+						
+				footer.side-footer
+					nav.footer-nav
+						a(href="/about") 关于
+						a(href="/copyright") 版权
+						a(href="/coop") 合作
+						a(href="/team") 团队
+						a(href="/join") 加入我们
+					p.footer-copy
+						a(href="//cnpolitics.org") &copy; 2011–2015 政见 CNPolitics.org
+

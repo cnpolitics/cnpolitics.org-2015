@@ -381,6 +381,22 @@ button {
 	-moz-osx-font-smoothing: inherit;*/
 }
 /*====== Typographic reset ======*/
+/*--- Chinese punctuation optimization ---*/
+@font-face {
+  font-family: 'GB Punct';
+  src: local("Hiragino Sans GB"), local("Heiti SC"), local("SimHei");
+  unicode-range: U+2014, U+00B7, U+2026, U+201C, U+201D;
+  /* em dash,
+	 * middle dot,
+	 * ellipsis,
+	 * left double quotes,
+	 * right doubel quotes
+	**/
+}
+.gb-punct {
+  font-family: "GB Punct", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", "Noto Sans", sans-serif;
+}
+/*--- Chinese punctuation optimization END ---*/
 header,
 section,
 h1,
@@ -426,36 +442,27 @@ a {
   background-color: #b42800;
   z-index: 1000;
 }
-.hero {
-  position: relative;
-  width: 100%;
-  height: 12em;
-  background-color: #b42800;
-  background-size: cover;
-  background-position: center center;
-}
-.hero .logo {
+.sidebar {
   position: absolute;
-  left: 3em;
-  bottom: 1em;
-  width: 7.11111111em;
+  top: 0;
+  right: 0;
+  width: 15em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
-.home-wrap {
-  position: relative;
-  margin-top: 3em;
-}
-/*--- Digest list ---*/
 .digest-list {
   width: 30em;
-  padding-right: 19em;
-  margin: 0 auto;
 }
 .digest {
   position: relative;
   width: 20em;
-  margin-top: 2em;
+  max-height: 8em;
+  overflow-y: hidden;
   padding-left: 10em;
   line-height: 1.33333333em;
+}
+.digest + .digest {
+  margin-top: 2em;
 }
 .digest .thumb {
   position: absolute;
@@ -465,8 +472,13 @@ a {
   height: 8em;
   background-color: #f2f2f2;
 }
-.digest h3 {
+.digest .title {
   font-size: 1em;
+  -webkit-transition: color ease .5s;
+          transition: color ease .5s;
+}
+.digest .title:hover {
+  color: #b42800;
 }
 .digest .meta {
   margin-bottom: 0.5em;
@@ -476,8 +488,8 @@ a {
 }
 .digest .author {
   color: #b42800;
-  -webkit-transition: color .5s;
-          transition: color .5s;
+  -webkit-transition: color ease .5s;
+          transition: color ease .5s;
 }
 .digest .author:hover {
   color: #cbcbcb;
@@ -486,14 +498,150 @@ a {
   color: #666666;
   font-size: 0.88888889em;
 }
-/*--- Digest list ---*/
-/*--- Sidebar ---*/
-.sidebar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 15em;
-  padding-left: 2em;
-  padding-right: 2em;
+.home {
+  /*------ `.home` style BEGIN */
 }
+.home .hero {
+  position: relative;
+  width: 100%;
+  height: 12em;
+}
+.home .hero-bg {
+  position: fixed;
+  z-index: -100;
+  width: 100%;
+  height: 12em;
+  background-color: #b42800;
+  background-size: cover;
+  background-position: center center;
+}
+.home .hero .logo {
+  position: absolute;
+  left: 3em;
+  bottom: 1em;
+  width: 7.11111111em;
+}
+.home .home-main {
+  position: relative;
+  padding-top: 3em;
+  background-color: #fcfcfc;
+}
+.home .home-main .digest-list {
+  padding-right: 17em;
+  margin: 0 auto;
+}
+.home .select {
+  width: 100%;
+  margin-bottom: 3em;
+}
+.home .select-post {
+  position: relative;
+  margin-bottom: 1.71428571em;
+  font-size: 0.77777778em;
+  line-height: 1.71428571;
+}
+.home .select-post a {
+  display: block;
+}
+.home .select-post .title {
+  font-size: 1em;
+}
+.home .select-post .excerpt {
+  color: #666666;
+  -webkit-transition: color ease .5s;
+          transition: color ease .5s;
+}
+.home .select-post:hover .excerpt {
+  color: #333333;
+}
+.home .select.datavis,
+.home .select.publish {
+  position: relative;
+  line-height: 1.22222222em;
+}
+.home .select.datavis .title,
+.home .select.publish .title {
+  margin-bottom: 0.28571429em;
+  font-size: 0.77777778em;
+}
+.home .select.datavis .title:hover .more-link,
+.home .select.publish .title:hover .more-link {
+  color: #333333;
+}
+.home .select.datavis .title .more-link,
+.home .select.publish .title .more-link {
+  font-size: 0.85714286em;
+  font-weight: 400;
+  color: #cbcbcb;
+  -webkit-transition: color ease .5s;
+          transition: color ease .5s;
+}
+.home .select.datavis .title .more-link::before,
+.home .select.publish .title .more-link::before {
+  content: "｜";
+  color: #cbcbcb;
+}
+.home .select.datavis .disc,
+.home .select.publish .disc {
+  margin-bottom: 0.66666667em;
+  color: #666666;
+  font-size: 0.66666667em;
+}
+.home .select.datavis .thumb-list .thumb,
+.home .select.publish .thumb-list .thumb {
+  display: inline-block;
+  width: 4.88888889em;
+  vertical-align: top;
+  background-color: #f2f2f2;
+}
+.home .select.datavis .thumb-list .thumb a,
+.home .select.publish .thumb-list .thumb a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.home .select.datavis .thumb-list .thumb img,
+.home .select.publish .thumb-list .thumb img {
+  width: 100%;
+  height: 100%;
+}
+.home .select.datavis .thumb-list .thumb + .thumb,
+.home .select.publish .thumb-list .thumb + .thumb {
+  margin-left: 3px;
+}
+.home .select.datavis .thumb {
+  height: 4.88888889em;
+}
+.home .select.publish .thumb {
+  height: 7.33333333em;
+}
+.home .sidebar {
+  margin-top: 3em;
+}
+.home .side-footer {
+  margin: 6em 0;
+  color: #666666;
+  font-size: 0.66666667em;
+  line-height: 1.83333333em;
+}
+.home .side-footer .footer-nav a + a::before {
+  content: "·";
+  color: #cbcbcb;
+}
+.home .side-footer .footer-nav a {
+  -webkit-transition: color ease .5s;
+          transition: color ease .5s;
+}
+.home .side-footer .footer-nav a:hover {
+  color: #333333;
+}
+.home .side-footer .footer-copy {
+  color: #cbcbcb;
+  -webkit-transition: color ease .5s;
+          transition: color ease .5s;
+}
+.home .side-footer .footer-copy:hover {
+  color: #666666;
+}
+/*------ `.home` style END */
 /*# sourceMappingURL=app.css.map */

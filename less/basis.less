@@ -26,6 +26,24 @@ button {
 }
 
 /*====== Typographic reset ======*/
+/*--- Chinese punctuation optimization ---*/
+@font-face {
+	font-family: 'GB Punct';
+	src: local("Hiragino Sans GB"), local("Heiti SC"), local("SimHei");
+	unicode-range: U+2014, U+00B7, U+2026, U+201C, U+201D;
+	/* em dash,
+	 * middle dot,
+	 * ellipsis,
+	 * left double quotes,
+	 * right doubel quotes
+	**/
+}
+
+.gb-punct {
+	font-family: "GB Punct", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans", "Noto Sans", sans-serif;
+}
+/*--- Chinese punctuation optimization END ---*/
+
 header,
 section,
 h1,
@@ -71,4 +89,13 @@ a {
 	height: 4px;
 	background-color: @red-main;
 	z-index: 1000;
+}
+
+.sidebar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: (270em/18);
+	padding-left: 2em;
+	padding-right: 2em;
 }
