@@ -1,55 +1,55 @@
 .digest-list {
 	width: (540em/18);
-}
 
-.digest {
-	position: relative;
-	width: (360em/18);
-	max-height: (144em/18);
-	overflow-y: hidden;
-	padding-left: (180em/18);
-	line-height: (24em/18);
-	
-	& + & {
+	.digest + .digest {
 		margin-top: 2em;
 	}
 	
-	.thumb {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: (144em/18);
-		height: (144em/18);
-		background-color: @b95;
-	}
-	
-	.title {
-		font-size: 1em;
-		transition: color ease .5s;
+	.digest {
+		position: relative;
+		width: (360em/18);
+		max-height: (144em/18);
+		overflow-y: hidden;
+		padding-left: (180em/18);
+		line-height: (24em/18);
 		
-		&:hover {
-			color: @red-main;
+		.thumb {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: (144em/18);
+			height: (144em/18);
+			background-color: @b95;
 		}
-	}
-	
-	.meta {
-		margin-bottom: (6em/12);
-		color: @text-disable;
-		font-size: (12em/18);
-		line-height: (20/12);
-	}
-	
-	.author {
-		color: @red-main;
-		transition: color ease .5s;
 		
-		&:hover {
+		.title {
+			font-size: 1em;
+			transition: color ease .5s;
+			
+			&:hover {
+				color: @red-main;
+			}
+		}
+		
+		.meta {
+			margin-bottom: (6em/12);
 			color: @text-disable;
+			font-size: (12em/18);
+			line-height: (20/12);
 		}
-	}
-	
-	.excerpt {
-		color: @text-sub;
-		font-size: (16em/18);
+		
+		.author {
+			color: @red-main;
+			transition: color ease .5s;
+			
+			&:hover {
+				color: @text-disable;
+			}
+		}
+		
+		.excerpt {
+			color: @text-sub;
+			font-size: (16em/18);
+		}
 	}
 }
