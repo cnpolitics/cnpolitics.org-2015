@@ -449,8 +449,11 @@ a {
   top: 0;
   right: 0;
   width: 15em;
-  padding-left: 2em;
+  padding-left: 1em;
   padding-right: 2em;
+  border-width: 3em 0 0 1em;
+  border-image-source: url(border-sidebar.png);
+  border-image-slice: 60% 0 0 100%;
 }
 .db-index {
   position: fixed;
@@ -612,7 +615,7 @@ a {
   background-color: #fcfcfc;
 }
 .home .home-main .digest-list {
-  padding-right: 17em;
+  padding-right: 19em;
   margin: 0 auto;
 }
 .home .select {
@@ -699,9 +702,6 @@ a {
 }
 .home .select.publish .thumb {
   height: 7.33333333em;
-}
-.home .sidebar {
-  margin-top: 3em;
 }
 .home .side-footer {
   margin: 6em 0;
