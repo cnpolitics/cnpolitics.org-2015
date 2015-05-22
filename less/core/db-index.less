@@ -20,8 +20,8 @@
 		.icon-3bar {
 			position: relative;
 			display: inline-block;
-			width: 18px;
-			height: 18px;
+			width: 1em;
+			height: 1em;
 			
 			.bar-1,
 			.bar-2,
@@ -29,14 +29,14 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				width: 18px;
-				height: 18px;
+				width: 1em;
+				height: 1em;
 				transition: opacity linear .2s, transform ease-in-out .3s;
 			}
 			
 			rect {
 				fill: @text-sub;
-				transition: fill ease .5s, transform ease-in-out .3s;
+				transition: fill ease .5s;
 			}
 		}
 		
@@ -49,6 +49,7 @@
 			font-size: (12em/18);
 			line-height: 1;
 			transition: color ease .5s;
+			-ms-transition: color ease 0s;
 		}
 		
 		&:hover {
@@ -69,8 +70,7 @@
 		
 	.switch .icon-3bar {
 		.bar-1 {
-			transform: rotateZ(135deg);
-			rect { transform: translate3d(5px, 0px, 0); }
+			transform: rotateZ(135deg) translate3d((5em/18), 0, 0);
 		}
 		
 		.bar-2 {
@@ -79,8 +79,7 @@
 		}
 		
 		.bar-3 {
-			transform: rotateZ(225deg);
-			rect { transform: translate3d(-5px, 0px, 0); }
+			transform: rotateZ(225deg) translate3d((-5em/18), 0, 0);
 		}
 	}
 }
