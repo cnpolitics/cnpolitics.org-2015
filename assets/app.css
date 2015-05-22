@@ -553,6 +553,10 @@ a {
   height: 8em;
   background-color: #f2f2f2;
 }
+.digest-list .digest .thumb img {
+  width: 100%;
+  height: 100%;
+}
 .digest-list .digest .title {
   font-size: 1em;
   -webkit-transition: color ease .5s;

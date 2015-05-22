@@ -14,6 +14,7 @@ html(lang="en")
 		include _db-index.jade
 			
 		main.home-main
+			-var onePx = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9JREFUeNpi+PTpE0CAAQAFsALXeCy2FAAAAABJRU5ErkJggg=="
 			section.digest-list
 				mixin digest
 					-var digTitle = "维持现状：台湾政治精英的抉择"
@@ -21,7 +22,8 @@ html(lang="en")
 					-var digDate = "2015-5-20"
 					-var digExcerpt = "台湾内部的两岸政策取态已经从过去激烈的蓝绿对立逐步朝“维持现状”的中间路线靠拢。而这种蓝绿逐渐趋同的局势对台湾的两岸政策、两岸互动以及台海局势的多方博弈都有显著的影响。"
 					article.digest
-						.thumb
+						a(href="#").thumb
+							img(src=onePx)
 						h2.title
 							a(href="#")= digTitle
 						p.meta
@@ -52,7 +54,6 @@ html(lang="en")
 				mixin thumb
 					li.thumb
 						a(href="#")
-							-var onePx = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9JREFUeNpi+PTpE0CAAQAFsALXeCy2FAAAAABJRU5ErkJggg=="
 							img(src=onePx)
 									
 				section.select.datavis
