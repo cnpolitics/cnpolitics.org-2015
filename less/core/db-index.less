@@ -3,9 +3,6 @@
 	z-index: 1000;
 	top: 0;
 	left: 0;
-	width: 5em;
-	height: 100%;
-	transition: width ease-in-out .5s, background-color ease-in-out .5s;
 
 	.switch {
 		position: fixed;
@@ -31,7 +28,8 @@
 				left: 0;
 				width: 1em;
 				height: 1em;
-				transition: opacity linear .2s, transform ease-in-out .3s;
+				will-change: opacity, transform;
+				transition: opacity linear .5s, transform cubic-bezier(0.68, -0.55, 0.35, 1.01) .4s;
 			}
 			
 			rect {
@@ -65,21 +63,38 @@
 }
 
 .db-index.active {
-	width: 100%;
-	background-color: @bg;
-		
-	.switch .icon-3bar {
-		.bar-1 {
-			transform: rotateZ(135deg) translate3d((5em/18), 0, 0);
-		}
-		
-		.bar-2 {
-			transform: rotate(135deg);
-			opacity: 0;
-		}
-		
-		.bar-3 {
-			transform: rotateZ(225deg) translate3d((-5em/18), 0, 0);
+	.switch {
+		.icon-3bar {
+			.bar-1 {
+				transform: rotateZ(135deg) translate3d((5em/18), 0, 0);
+			}
+			
+			.bar-2 {
+				transform: rotate(135deg);
+				opacity: 0;
+			}
+			
+			.bar-3 {
+				transform: rotateZ(225deg) translate3d((-5em/18), 0, 0);
+			}
+			
+			.bar-1,
+			.bar-2,
+			.bar-3 {
+				transition: opacity linear .5s, transform cubic-bezier(0.68, -0.55, 0.27, 1.55) .5s;
+			}
 		}
 	}
+}
+
+.test-info {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	color: @text-disable;
+	font-size: (16em/18);
+	text-align: center;
+	line-height: 1;
+	transform: translateY(-50%);
 }
